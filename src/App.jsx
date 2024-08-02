@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Description from "./components/Description/Description";
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
+import Notification from "./components/Notification/Notification";
 
 const App = () => {
   const [grade, setGrade] = useState(() => {
@@ -13,7 +14,6 @@ const App = () => {
       }
     );
   });
-
   useEffect(() => {
     localStorage.setItem("gradeValue", JSON.stringify(grade));
   }, [grade]);
@@ -35,15 +35,18 @@ const App = () => {
   return (
     <>
       <Description />
-
       <Options addGrade={addGrade} />
-      <Feedback
-        good={grade.good}
-        neutral={grade.neutral}
-        bad={grade.bad}
-        total={total}
-        positive={positive}
-      />
+      {total === 0 ? (
+        <Notification />
+      ) : (
+        <Feedback
+          good={grade.good}
+          neutral={grade.neutral}
+          bad={grade.bad}
+          total={total}
+          positive={positive}
+        />
+      )}
     </>
   );
 };
