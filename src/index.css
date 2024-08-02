@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding-left: 20px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
