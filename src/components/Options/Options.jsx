@@ -1,4 +1,4 @@
-const Options = ({ addGrade }) => {
+const Options = ({ addGrade, total }) => {
   return (
     <div>
       <button type="button" onClick={() => addGrade("good")}>
@@ -10,9 +10,13 @@ const Options = ({ addGrade }) => {
       <button type="button" onClick={() => addGrade("bad")}>
         Bad
       </button>
-      <button type="button" onClick={() => addGrade("reset")}>
-        Reset
-      </button>
+      {total === 0 ? (
+        ""
+      ) : (
+        <button type="button" onClick={() => addGrade("reset")}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };

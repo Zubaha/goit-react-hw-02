@@ -35,7 +35,7 @@ const App = () => {
   return (
     <>
       <Description />
-      <Options addGrade={addGrade} />
+      <Options addGrade={addGrade} total={total} />
       {total === 0 ? (
         <Notification />
       ) : (
